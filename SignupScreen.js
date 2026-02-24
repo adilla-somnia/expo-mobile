@@ -1,33 +1,34 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import { View, Text, TextInput, Pressable } from 'react-native';
+import { styles } from './styles';
 
 function SignupScreen({navigation}) {
     const [password, setPassword] = useState('');
 
     return(
         <View style={styles.container}>
-            <Text>Nome</Text>
+            <Text style={styles.label}>Nome</Text>
                 <TextInput
                 style={styles.input}
                 placeholder='seu nome completo...'
                 placeholderTextColor="#999"
                  />
-            <Text>CPF</Text>
+            <Text style={styles.label}>CPF</Text>
                 <TextInput
                 style={styles.input}
                 placeholder='xxx.xxx.xxx-xx'
                 placeholderTextColor="#999"
                  />
 
-            <Text>Email</Text>
+            <Text style={styles.label}>Email</Text>
                 <TextInput
                 style={styles.input}
                 placeholder='usuario@outlook.com'
                 placeholderTextColor="#999"
                  />
 
-            <Text>Senha</Text>
+            <Text style={styles.label}>Senha</Text>
                 <TextInput style={styles.input}
                 placeholder='senha...'
                 placeholderTextColor="#999"
@@ -35,31 +36,15 @@ function SignupScreen({navigation}) {
                 value={password}
                 onChangeText={setPassword}
                  />
-                 
-            <Button title="Salvar Cadastro"
+            
+            <Pressable style={[styles.button, {backgroundColor: '#1670f7', width: 300, marginTop: 40}]}
             onPress={() => navigation.navigate('ContactList') }
-            ></Button>
+            >
+                <Text style={styles.buttonText}>Salvar</Text>
+            </Pressable>
 
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: 'grey',
-    width: '60%',
-    borderRadius: 5,
-    padding: 3,
-    marginTop: 5,
-    marginBottom: 15,
-  },
-});
 
 export default SignupScreen;

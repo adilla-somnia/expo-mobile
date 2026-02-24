@@ -16,7 +16,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='LoginScreen'>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown: false}} />
-        <Stack.Screen name="SignupScreen" component={SignupScreen} options={{headerShown: false}} />
+        <Stack.Screen name="SignupScreen" component={SignupScreen} options={{title: 'Usuário', headerBackTitle: '_' }} />
         <Stack.Screen name="ContactList" component={ContactList} options={{headerShown: false}} />
         <Stack.Screen name="AddContact" component={AddContact} options={{headerShown: false}} />
         <Stack.Screen name="EditContact" component={EditContact} />
