@@ -48,4 +48,10 @@ export const styles = StyleSheet.create({
     borderWidth: 0.1,
     margin: 30
   },
+  header: {
+    backgroundColor: '#1670f7',
+  },
+  headerTitle: {
+    color: '#fff'
+  }
 });

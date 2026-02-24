@@ -1,23 +1,21 @@
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import ContactCard from './ContactCard';
 import { Ionicons } from '@expo/vector-icons';
 
 const contacts = [
     {"id": 1,'full_name': 'Marcos Antonio', "email": "marcosdafonsenca@outlook.com", 'number': '81 99521-1253'},
-    {"id": 2,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'}
+    {"id": 2,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'},
+    {"id": 3,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'},
+    {"id": 4,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'},
+    {"id": 5,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'},
+    {"id": 6,'full_name': 'Joana da Silva', "email": "joanasil33@gmail.com", 'number': '85 9331-3532'}
 ]
 
-function ContactList({navigation}) {
+function ContactList() {
     return(
+      <ScrollView>
         <View style={styles.container}>
-
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Lista de Contatos</Text>
-                <Ionicons name="add" color="#000" size={35} style={styles.add}
-                onPress={() => navigation.navigate('AddContact')} />
-            </View>
-
             <View style={styles.cardContainer}>
                 {contacts.map((contact) => (
                     <ContactCard
@@ -29,15 +27,20 @@ function ContactList({navigation}) {
                 ))}
             </View>
         </View>
+      </ScrollView>
     )
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+    backgroundColor: '#dadada',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 10,
+    width: '100%',
+    height: '100%',
+    display: 'contents'
   },
   input: {
     borderWidth: 1,
@@ -51,7 +54,8 @@ const styles = StyleSheet.create({
   cardContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    marginTop: 10
   },
   header: {
     position: 'absolute',

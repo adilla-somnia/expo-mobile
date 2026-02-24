@@ -13,8 +13,8 @@ function ContactCard({name, number, email}) {
         onPress={() => navigation.navigate('EditContact', {"full_name": name, "email": email, "number": number} )}>
             <Ionicons name="person" color="#000" size={40} style={styles.user} />
             <View>
-            <Text>{name}</Text>
-            <Text>{number}</Text>
+            <Text style={styles.info}>{name}</Text>
+            <Text style={styles.info}>{number}</Text>
             </View>
         </Pressable>
     )
@@ -22,17 +22,23 @@ function ContactCard({name, number, email}) {
 
 const styles = StyleSheet.create({
     card: {
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'grey',
-    width: "80%",
-    borderRadius: 5,
+    padding: 15,
+    width: "90%",
     marginBottom: 30,
     alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: "#fff",
+    borderRadius: 5
     },
     user: {
     marginRight: 15,
-    padding: 10
+    padding: 10,
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: '50%'
+    },
+    info: {
+        fontSize: 30
     }
 });
 
