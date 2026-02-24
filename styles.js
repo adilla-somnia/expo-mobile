@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
     marginBottom: 5,
-    height: 40
+    height: 40,
+    fontSize: 20
   },
   button: {
     margin: 10,

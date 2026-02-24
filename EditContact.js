@@ -1,60 +1,50 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Pressable } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import { styles } from './styles';
 
 function EditContact({navigation, route}) {
     const { full_name, email, number } = route.params;
 
     return(
         <View style={styles.container}>
-            <Text>Nome</Text>
+            <Text style={styles.label}>Nome</Text>
                 <TextInput
                 style={styles.input}
                 placeholder='nome completo...'
                 value={full_name}
                 placeholderTextColor="#999"
                  />
-            <Text>Email</Text>
+            <Text style={styles.label}>Email</Text>
                 <TextInput
                 style={styles.input}
                 placeholder='usuario@outlook.com'
                 value={email}
                 placeholderTextColor="#999"
                  />
-            <Text>Número</Text>
+            <Text style={styles.label}>Número</Text>
                 <TextInput style={styles.input}
                 placeholder='número...'
                 value={number}
                 placeholderTextColor="#999"
                  />
                  
-            <Button title="Alterar"
+            <View style={[styles.buttonContainer, { marginTop: -20 }]}>
+            <Pressable style={[styles.button, {backgroundColor: '#1670f7'}]}
             onPress={() => navigation.navigate('ContactList') }
-            ></Button>
-            <Button title="Excluir"
+            >
+              <Text style={styles.buttonText}>Alterar</Text>
+            </Pressable>
+            <Pressable style={[styles.button, {backgroundColor: '#FF1616'}]}
             onPress={() => navigation.navigate('ContactList') }
-            ></Button>
+            >
+              <Text style={styles.buttonText}>Excluir</Text>
+            </Pressable>
+            </View>
+
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: 'grey',
-    width: '60%',
-    borderRadius: 5,
-    padding: 3,
-    marginTop: 5,
-    marginBottom: 15,
-  },
-});
 
 export default EditContact;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button, Pressable, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Button, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './styles';
 

@@ -38,7 +38,13 @@ export default function App() {
                 headerTintColor: 'white'
                 }} />
 
-        <Stack.Screen name="EditContact" component={EditContact} />
+        <Stack.Screen name="EditContact" component={EditContact}
+        options={{title: 'Contato',
+                headerStyle: styles.header,
+                headerTitleStyle: styles.headerTitle,
+                headerBackButtonDisplayMode: 'minimal',
+                headerTintColor: 'white'
+                }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
