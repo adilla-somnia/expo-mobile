@@ -37,9 +37,9 @@ export const styles = StyleSheet.create({
   },
   label: {
     textAlign: 'left',
-    width: "80%",
+    width: "78%",
     marginTop: 10,
-    fontSize: 20
+    fontSize: 20,
   },
   logo: {
     width: 100,

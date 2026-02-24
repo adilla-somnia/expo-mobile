@@ -30,7 +30,14 @@ export default function App() {
           <AddContactButton></AddContactButton>
         ) }} />
 
-        <Stack.Screen name="AddContact" component={AddContact} options={{headerShown: false}} />
+        <Stack.Screen name="AddContact" component={AddContact}
+        options={{title: 'Contato',
+                headerStyle: styles.header,
+                headerTitleStyle: styles.headerTitle,
+                headerBackButtonDisplayMode: 'minimal',
+                headerTintColor: 'white'
+                }} />
+
         <Stack.Screen name="EditContact" component={EditContact} />
       </Stack.Navigator>
     </NavigationContainer>
