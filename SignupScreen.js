@@ -1,13 +1,19 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, Pressable } from 'react-native';
+import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from 'react-native';
 import { styles } from './styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Platform } from 'react-native';
 
 function SignupScreen({navigation}) {
     const [password, setPassword] = useState('');
 
     return(
-        <View style={styles.container}>
+        <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.bigContainer}
+        >
+        <SafeAreaView style={styles.container}>
             <Text style={styles.label}>Nome</Text>
                 <TextInput
                 style={styles.input}
@@ -43,7 +49,8 @@ function SignupScreen({navigation}) {
                 <Text style={styles.buttonText}>Salvar</Text>
             </Pressable>
 
-        </View>
+        </SafeAreaView>
+    </KeyboardAvoidingView>
     )
 };
 

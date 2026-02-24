@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  bigContainer: {
+    flex: 1
+  },
   input: {
     borderWidth: 1,
     borderColor: 'grey',

@@ -3,11 +3,16 @@ import { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, Button, Pressable, Image, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './styles';
+import { Platform } from 'react-native';
 
 function LoginScreen({ navigation }) {
     const [password, setPassword] = useState('');
     return(
-        <View style={styles.container}>
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.bigContainer}
+        >
+        <SafeAreaView style={styles.container}>
 
              <Image
         style={styles.logo}
@@ -46,7 +51,8 @@ function LoginScreen({ navigation }) {
             </Pressable>
 
             </View>
-        </View>
+        </SafeAreaView>
+      </KeyboardAvoidingView>
     )
 };
 

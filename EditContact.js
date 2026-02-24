@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Pressable } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Pressable, KeyboardAvoidingView } from 'react-native';
+import { Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute } from '@react-navigation/native';
 import { styles } from './styles';
 
@@ -8,7 +10,11 @@ function EditContact({navigation, route}) {
     const { full_name, email, number } = route.params;
 
     return(
-        <View style={styles.container}>
+            <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.bigContainer}
+            >
+        <SafeAreaView style={styles.container}>
             <Text style={styles.label}>Nome</Text>
                 <TextInput
                 style={styles.input}
@@ -43,7 +49,8 @@ function EditContact({navigation, route}) {
             </Pressable>
             </View>
 
-        </View>
+        </SafeAreaView>
+      </KeyboardAvoidingView>
     )
 };
 
