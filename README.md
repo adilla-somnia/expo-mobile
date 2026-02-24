@@ -14,8 +14,8 @@ Este projeto apresenta um aplicação expo com telas diferentes e interligadas, 
 
 [tela -> destino de navegação1, destino de navegação2...]
 
-Login -> Cadastro, Lista de Contatos
-Cadastro -> Lista de Contatos
-Lista de Contatos -> Adicionar Contato, Editar Contato
-Adicionar Contato -> Lista de Contatos
-Editar Contato -> Lista de Contatos
+-- Login -> Cadastro, Lista de Contatos
+-- Cadastro -> Lista de Contatos
+-- Lista de Contatos -> Adicionar Contato, Editar Contato
+-- Adicionar Contato -> Lista de Contatos
+-- Editar Contato -> Lista de Contatos
