@@ -5,7 +5,10 @@ import { styles } from '../style/styles';
 import { Platform } from 'react-native';
 
 function LoginScreen({ navigation }) {
-  const [password, setPassword] = useState('');
+  const [password, onChangePassword] = useState('');
+  const [username, onChangeUsername] = useState('');
+
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -23,6 +26,9 @@ function LoginScreen({ navigation }) {
           style={styles.input}
           placeholder='usuário...'
           placeholderTextColor="#999"
+          require={true}
+          value={username}
+          onChangeText={onChangeUsername}
         />
 
 
@@ -32,12 +38,14 @@ function LoginScreen({ navigation }) {
           placeholderTextColor="#999"
           secureTextEntry={true}
           value={password}
-          onChangeText={setPassword}
+          onChangeText={onChangePassword}
+          require={true}
         />
 
         <View style={styles.buttonContainer}>
           <Pressable style={[styles.button, { backgroundColor: '#1670f7' }]}
-            onPress={() => navigation.navigate('ContactList')}
+            onPress={() => navigation.navigate('ContactList')
+            }
           >
             <Text style={styles.buttonText}>Login</Text>
           </Pressable>

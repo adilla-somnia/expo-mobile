@@ -5,7 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Platform } from 'react-native';
 
 function SignupScreen({ navigation }) {
-    const [password, setPassword] = useState('');
+    const [password, onChangePassword] = useState('');
+    const [cpf, onChangeCpf] = useState('');
+    const [name, onChangeName] = useState('');
+    const [email, onChangeEmail] = useState('');
 
     return (
         <KeyboardAvoidingView
@@ -18,12 +21,17 @@ function SignupScreen({ navigation }) {
                     style={styles.input}
                     placeholder='seu nome completo...'
                     placeholderTextColor="#999"
+                    value={name}
+                    onChangeText={onChangeName}
                 />
                 <Text style={styles.label}>CPF</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='xxx.xxx.xxx-xx'
                     placeholderTextColor="#999"
+                    value={cpf}
+                    onChangeText={onChangeCpf}
+                    keyboardType='numeric'
                 />
 
                 <Text style={styles.label}>Email</Text>
@@ -31,6 +39,8 @@ function SignupScreen({ navigation }) {
                     style={styles.input}
                     placeholder='usuario@outlook.com'
                     placeholderTextColor="#999"
+                    value={email}
+                    onChangeText={onChangeEmail}
                 />
 
                 <Text style={styles.label}>Senha</Text>
@@ -39,11 +49,12 @@ function SignupScreen({ navigation }) {
                     placeholderTextColor="#999"
                     secureTextEntry={true}
                     value={password}
-                    onChangeText={setPassword}
+                    onChangeText={onChangePassword}
                 />
 
                 <Pressable style={[styles.button, { backgroundColor: '#1670f7', width: 300, marginTop: 40 }]}
-                    onPress={() => navigation.navigate('ContactList')}
+                    onPress={() => navigation.navigate('ContactList')
+                    }
                 >
                     <Text style={styles.buttonText}>Salvar</Text>
                 </Pressable>
