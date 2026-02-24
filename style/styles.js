@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
     borderColor: 'grey',
     borderWidth: 1,
-    borderRadius: 5 
+    borderRadius: 5
   },
   buttonContainer: {
     bottom: -60,
