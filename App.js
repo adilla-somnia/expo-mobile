@@ -7,13 +7,14 @@ import AddContact from './screens/AddContact';
 import EditContact from './screens/EditContact';
 import AddContactButton from './components/AddContactButton';
 import { styles } from './style/styles';
+import HomeNew from './screens/HomeNew';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='LoginScreen'>
+      <Stack.Navigator initialRouteName='HomeNew'>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ title: 'Usuário', headerBackButtonDisplayMode: 'minimal' }} />
         <Stack.Screen name="ContactList" component={ContactList}
@@ -44,6 +45,11 @@ export default function App() {
             headerBackButtonDisplayMode: 'minimal',
             headerTintColor: 'white'
           }} />
+          <Stack.Screen name ="HomeNew" component={HomeNew}
+          options={{
+            headerShown: false
+          }}
+          />
       </Stack.Navigator>
     </NavigationContainer>
   );
