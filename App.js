@@ -9,13 +9,14 @@ import AddContactButton from './components/AddContactButton';
 import { styles } from './style/styles';
 import HomeNew from './screens/HomeNew';
 import { StatusBar } from 'react-native';
+import TravelHome from './screens/TravelHome';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='HomeNew'>
+      <Stack.Navigator initialRouteName='TravelHome'>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ title: 'Usuário', headerBackButtonDisplayMode: 'minimal' }} />
         <Stack.Screen name="ContactList" component={ContactList}
@@ -47,6 +48,11 @@ export default function App() {
             headerTintColor: 'white'
           }} />
         <Stack.Screen name="HomeNew" component={HomeNew}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen name="TravelHome" component={TravelHome}
           options={{
             headerShown: false
           }}
