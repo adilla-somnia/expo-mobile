@@ -8,6 +8,7 @@ import EditContact from './screens/EditContact';
 import AddContactButton from './components/AddContactButton';
 import { styles } from './style/styles';
 import HomeNew from './screens/HomeNew';
+import { StatusBar } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,11 +46,11 @@ export default function App() {
             headerBackButtonDisplayMode: 'minimal',
             headerTintColor: 'white'
           }} />
-          <Stack.Screen name ="HomeNew" component={HomeNew}
+        <Stack.Screen name="HomeNew" component={HomeNew}
           options={{
             headerShown: false
           }}
-          />
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
