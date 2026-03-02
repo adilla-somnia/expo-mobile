@@ -3,7 +3,7 @@ import { Surface, Avatar, Text, Icon, Divider } from 'react-native-paper';
 import { useEffect } from "react";
 import { StyleSheet, View, ScrollView, Pressable, Image, StatusBar } from "react-native";
 
-export default function ChatHome() {
+export default function ChatHome({navigation}) {
 
     const chats = [
         {
@@ -123,14 +123,14 @@ export default function ChatHome() {
                     <Icon source="chat" color="#3f60a0" size={26} />
                     <Text style={thisStyle.textPrimary}>Chat</Text>
                 </View>
-                <View style={thisStyle.bottomAppbarCol}>
+                <Pressable style={thisStyle.bottomAppbarCol} onPress={() => navigation.navigate('TravelHome')}>
                     <Icon source="bell-outline" color="#3f60a0" size={26} />
                     <Text style={thisStyle.textPrimary}>Mail</Text>
-                </View>
-                <View style={thisStyle.bottomAppbarCol}>
+                </Pressable>
+                <Pressable style={thisStyle.bottomAppbarCol} onPress={() => navigation.navigate('HomeNew')}>
                     <Icon source="account" color="#3f60a0" size={26} />
                     <Text style={thisStyle.textPrimary}>Profile</Text>
-                </View>
+                </Pressable>
 
             </Surface>
 

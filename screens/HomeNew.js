@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { StyleSheet, FlatList, View, ScrollView, Pressable, Image, StatusBar } from "react-native";
 
 
-export default function HomeNew() {
+export default function HomeNew({navigation}) {
     const [query, setQuery] = useState('');
     const [username, setUsername] = useState('Michael Walker');
 
@@ -91,14 +91,14 @@ export default function HomeNew() {
                     <Icon source="medical-bag" color="white" size={30} />
                     <Text style={thisStyle.textWhite}>Doctors</Text>
                 </View>
-                <View style={thisStyle.bottomAppbarCol}>
+                <Pressable style={thisStyle.bottomAppbarCol}  onPress={() => navigation.navigate('ChatHome')}>
                     <Icon source="calendar" color="white" size={30} />
                     <Text style={thisStyle.textWhite}>Appointments</Text>
-                </View>
-                <View style={thisStyle.bottomAppbarCol}>
-                    <Icon source="account" color="white" size={30} />
+                </Pressable>
+                <Pressable style={thisStyle.bottomAppbarCol} onPress={() => navigation.navigate('TravelHome')} >
+                    <Icon source="account" color="white" size={30}  />
                     <Text style={thisStyle.textWhite}>Account</Text>
-                </View>
+                </Pressable>
 
             </Surface>
 

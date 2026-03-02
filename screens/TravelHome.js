@@ -5,7 +5,7 @@ import { StyleSheet, FlatList, View, ScrollView, Pressable, Image, StatusBar } f
 import { EvilIcons, FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-export default function TravelHome() {
+export default function TravelHome({navigation}) {
     const [query, setQuery] = useState('');
     const [username, setUsername] = useState('Michael Walker');
 
@@ -118,14 +118,14 @@ export default function TravelHome() {
                     <MaterialIcons name="explore" color="white" size={30} />
                     <Text style={thisStyle.textWhite}>Explore</Text>
                 </View>
-                <View style={thisStyle.bottomAppbarCol}>
+                <Pressable style={thisStyle.bottomAppbarCol} onPress={() => navigation.navigate('HomeNew')}>
                     <EvilIcons name="search" color="white" size={36} />
                     <Text style={thisStyle.textWhite}>Search</Text>
-                </View>
-                <View style={thisStyle.bottomAppbarCol}>
-                    <MaterialCommunityIcons name="account-circle" color="white" size={30} />
+                </Pressable>
+                <Pressable style={thisStyle.bottomAppbarCol}>
+                    <MaterialCommunityIcons name="account-circle" color="white" size={30} onPress={() => navigation.navigate('ChatHome')} />
                     <Text style={thisStyle.textWhite}>Profile</Text>
-                </View>
+                </Pressable>
 
             </Surface>
 
