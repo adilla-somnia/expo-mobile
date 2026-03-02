@@ -10,13 +10,14 @@ import { styles } from './style/styles';
 import HomeNew from './screens/HomeNew';
 import { StatusBar } from 'react-native';
 import TravelHome from './screens/TravelHome';
+import ChatHome from './screens/ChatHome';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='TravelHome'>
+      <Stack.Navigator initialRouteName='ChatHome'>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ title: 'Usuário', headerBackButtonDisplayMode: 'minimal' }} />
         <Stack.Screen name="ContactList" component={ContactList}
@@ -53,6 +54,11 @@ export default function App() {
           }}
         />
         <Stack.Screen name="TravelHome" component={TravelHome}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen name="ChatHome" component={ChatHome}
           options={{
             headerShown: false
           }}
