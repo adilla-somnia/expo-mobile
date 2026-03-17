@@ -1,16 +1,8 @@
 # expo-mobile
 
-## Telas da Segunda Atividade
+## Telas
 
-Este projeto apresenta 3 telas para diferentes aplicações.
-
-- Tela Inicial: HomeNew.js (app de consultas médicas) [link para próxima tela em 'Account']
-- Segunda Tela: TravelHome.js (app de viagens) [link para próxima tela em 'Account']
-- Terceira Tela: ChatHome.js (aba de app de mensagens) [link para HomeNew.js em 'Profile' e link para TravelHome.js em 'Mail']
-
-## Telas da Primeira Atividade
-
-Este projeto apresenta um aplicação expo com telas diferentes e interligadas, porém sem funcionalidade lógica ainda.
+Este projeto apresenta um aplicação expo com telas diferentes e interligadas, integradas a uma API json-server.
 
 ### Telas
 
@@ -29,3 +21,52 @@ Este projeto apresenta um aplicação expo com telas diferentes e interligadas, 
 - Lista de Contatos -> Adicionar Contato, Editar Contato
 - Adicionar Contato -> Lista de Contatos
 - Editar Contato -> Lista de Contatos
+
+### Como rodar
+
+Para rodar a aplicação será preciso iniciar o json-server primeiramente.
+
+1.  Crie um diretório vazio e nele rode o seguinte comando:
+`npm install -g json-server`
+
+2. Crie um arquivo chamado **db.json** e cole o seguinte:
+"""
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@mail.com",
+      "cpf": "1",
+      "password": 123456,
+      "contacts": []
+    }
+  ]
+}
+"""
+
+3. Rode o seguinte comando para inicializar o json-server.
+`json-server --watch db.json`
+
+4. Certifique-se de que a API esteja rodando na porta 3000, caso não esteja pode alterar a porta no clone do repositório para a sua.
+
+O próximo passo é iniciar a aplicação expo.
+
+1. Clone o repositório na sua máquina.
+`git clone https://github.com/adilla-somnia/expo-mobile`
+
+2. Entre no diretório
+`cd expo-mobile`
+
+3. Mude para esta branch.
+`git switch json-server-api-features`
+
+4. Instale as dependências
+`npm install`
+
+5. Inicie a aplicação com
+`npx expo start`
+ou
+`npx expo start --tunnel`
+ou
+`npx expo start --web`
