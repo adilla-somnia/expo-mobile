@@ -28,7 +28,7 @@ Para rodar a aplicação será preciso iniciar o json-server primeiramente.
 
 1.  Crie um diretório vazio e nele rode o seguinte comando:
    
-`npm install -g json-server`
+   `npm install -g json-server`
 
 3. Crie um arquivo chamado **db.json** e cole o seguinte:
    
@@ -49,35 +49,36 @@ Para rodar a aplicação será preciso iniciar o json-server primeiramente.
 
 3. Rode o seguinte comando para inicializar o json-server.
    
-`json-server --watch db.json`
+   `json-server --watch db.json`
 
 5. Certifique-se de que a API esteja rodando na porta 3000, caso não esteja pode alterar a porta no clone do repositório para a sua.
 
 O próximo passo é iniciar a aplicação expo.
 
 1. Clone o repositório na sua máquina.
-`git clone https://github.com/adilla-somnia/expo-mobile`
 
-2. Entre no diretório
+   `git clone https://github.com/adilla-somnia/expo-mobile`
+
+3. Entre no diretório
  
-`cd expo-mobile`
+   `cd expo-mobile`
 
 4. Mude para esta branch.
 
-`git switch json-server-api-features`
+   `git switch json-server-api-features`
 
 6. Instale as dependências
    
-`npm install`
+   `npm install`
 
 8. Inicie a aplicação com
    
-`npx expo start`
+   `npx expo start`
 
-ou
+   ou
 
-`npx expo start --tunnel`
+   `npx expo start --tunnel`
 
-ou
+   ou
 
-`npx expo start --web`
+   `npx expo start --web`
