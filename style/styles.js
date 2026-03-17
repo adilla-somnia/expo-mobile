@@ -57,5 +57,9 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#fff'
+  },
+  errorText: {
+    color: 'red',
+    fontWeight: '800'
   }
 });

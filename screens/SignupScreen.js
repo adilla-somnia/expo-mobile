@@ -3,12 +3,14 @@ import { Text, TextInput, Pressable, KeyboardAvoidingView } from 'react-native';
 import { styles } from '../style/styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Platform } from 'react-native';
+import { signup } from '../api/users';
 
 function SignupScreen({ navigation }) {
     const [password, onChangePassword] = useState('');
     const [cpf, onChangeCpf] = useState('');
     const [name, onChangeName] = useState('');
     const [email, onChangeEmail] = useState('');
+    const [errorVisible, setErrorVisible] = useState(false);
 
     return (
         <KeyboardAvoidingView
@@ -52,12 +54,51 @@ function SignupScreen({ navigation }) {
                     onChangeText={onChangePassword}
                 />
 
-                <Pressable style={[styles.button, { backgroundColor: '#1670f7', width: 300, marginTop: 40 }]}
+                {/* <Pressable style={[styles.button, { backgroundColor: '#1670f7', width: 300, marginTop: 40 }]}
                     onPress={() => navigation.navigate('ContactList')
                     }
                 >
                     <Text style={styles.buttonText}>Salvar</Text>
-                </Pressable>
+                </Pressable> */}
+
+{errorVisible ? (
+      <Text style={styles.errorText}>
+        Preencha todos os campos corretamente!
+      </Text>
+) : null}
+
+          <Pressable style={[styles.button, { backgroundColor: '#1670f7', width: 300, marginTop: 40 }]}
+            
+            onPress={async () => {
+              
+                if (!name || !cpf || !email || !password) {
+                  setErrorVisible(true);
+                  return;
+                }
+
+              try {
+                const result = await signup(name, cpf, email, password);
+                
+                if (!result) {
+                  setErrorVisible(true);
+                  return;
+                } else {
+                  onChangePassword('');
+                  onChangeName('');
+                  onChangeEmail('');
+                  onChangeCpf('');
+                  setErrorVisible(false);
+                  navigation.navigate('ContactList')
+                  return;
+                }
+              } catch (error) {
+                console.log('Signup error:', error);
+              }
+            }
+          }
+          >
+            <Text style={styles.buttonText}>Salvar</Text>
+          </Pressable>
 
             </SafeAreaView>
         </KeyboardAvoidingView>

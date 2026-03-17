@@ -3,11 +3,14 @@ import { Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from '../style/styles';
 import { useState } from 'react';
+import { addContact } from '../api/contacts';
 
 function AddContact({ navigation }) {
   const [name, onChangeName] = useState('');
   const [email, onChangeEmail] = useState('');
   const [number, onChangeNumber] = useState('');
+  const [errorVisible, setErrorVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   return (
     <KeyboardAvoidingView
@@ -45,6 +48,50 @@ function AddContact({ navigation }) {
         >
           <Text style={styles.buttonText}>Salvar</Text>
         </Pressable>
+
+{errorVisible ? (
+      <Text style={styles.errorText}>
+        {errorMessage}
+      </Text>
+) : null}
+
+          <Pressable style={[styles.button, { backgroundColor: '#1670f7', width: 300, marginTop: 40 }]}
+            
+            onPress={async () => {
+              
+                if (!name || !number || !email) {
+                  setErrorVisible(true);
+                  setErrorMessage('Preencha todos os campos!')
+                  return;
+                }
+
+              try {
+                const newContact = {
+                  name,
+                  phone: number,
+                  email
+                }
+                const result = await addContact('48a9', newContact); // Substitua pelo ID do usuário atual
+
+                if (!result) {
+                  setErrorVisible(true);
+                  return;
+                } else {
+                  onChangeName('');
+                  onChangeEmail('');
+                  onChangeNumber('');
+                  setErrorVisible(false);
+                  navigation.navigate('ContactList')
+                  return;
+                }
+              } catch (error) {
+                console.log('Add contact error:', error);
+              }
+            }
+          }
+          >
+            <Text style={styles.buttonText}>Salvar</Text>
+          </Pressable>
 
       </SafeAreaView>
     </KeyboardAvoidingView>
