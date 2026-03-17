@@ -27,10 +27,12 @@ Este projeto apresenta um aplicação expo com telas diferentes e interligadas, 
 Para rodar a aplicação será preciso iniciar o json-server primeiramente.
 
 1.  Crie um diretório vazio e nele rode o seguinte comando:
+   
 `npm install -g json-server`
 
-2. Crie um arquivo chamado **db.json** e cole o seguinte:
-"""
+3. Crie um arquivo chamado **db.json** e cole o seguinte:
+   
+```
 {
   "users": [
     {
@@ -43,12 +45,13 @@ Para rodar a aplicação será preciso iniciar o json-server primeiramente.
     }
   ]
 }
-"""
+```
 
 3. Rode o seguinte comando para inicializar o json-server.
+   
 `json-server --watch db.json`
 
-4. Certifique-se de que a API esteja rodando na porta 3000, caso não esteja pode alterar a porta no clone do repositório para a sua.
+5. Certifique-se de que a API esteja rodando na porta 3000, caso não esteja pode alterar a porta no clone do repositório para a sua.
 
 O próximo passo é iniciar a aplicação expo.
 
@@ -56,17 +59,25 @@ O próximo passo é iniciar a aplicação expo.
 `git clone https://github.com/adilla-somnia/expo-mobile`
 
 2. Entre no diretório
+ 
 `cd expo-mobile`
 
-3. Mude para esta branch.
+4. Mude para esta branch.
+
 `git switch json-server-api-features`
 
-4. Instale as dependências
+6. Instale as dependências
+   
 `npm install`
 
-5. Inicie a aplicação com
+8. Inicie a aplicação com
+   
 `npx expo start`
+
 ou
+
 `npx expo start --tunnel`
+
 ou
+
 `npx expo start --web`
