@@ -26,9 +26,6 @@ export default function App() {
             headerStyle: styles.header,
             headerTitleStyle: styles.headerTitle,
             headerBackVisible: false,
-            headerRight: () => (
-              <AddContactButton></AddContactButton>
-            )
           }} />
 
         <Stack.Screen name="AddContact" component={AddContact}

@@ -12,9 +12,10 @@ function LoginScreen({ navigation }) {
   const [errorVisible, setErrorVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  // limpa campos ao entrar na página
   useEffect(() => {
-  onChangePassword('');
-  onChangeUsername('');
+    onChangePassword('');
+    onChangeUsername('');
   }, [])
 
   return (
@@ -29,7 +30,7 @@ function LoginScreen({ navigation }) {
           source={require('../assets/user_placeholder_green.png')}
         />
 
-      
+
 
         <Text style={styles.label}>Usuário</Text>
         <TextInput
@@ -52,19 +53,18 @@ function LoginScreen({ navigation }) {
           required
         />
 
-{errorVisible ? (
-      <Text style={styles.errorText}>
-        {errorMessage}
-      </Text>
-) : null}
-
-
+        {errorVisible ? (
+          <Text style={styles.errorText}>
+            {errorMessage}
+          </Text>
+        ) : null}
 
         <View style={styles.buttonContainer}>
           <Pressable style={[styles.button, { backgroundColor: '#1670f7' }]}
-            
+
             onPress={async () => {
-              
+
+              // validando que os inputs estão preenchidos
               if (!username || !password) {
                 setErrorVisible(true);
                 setErrorMessage('Preencha todos os campos!')
@@ -72,31 +72,36 @@ function LoginScreen({ navigation }) {
               }
 
               try {
+                // fazendo request de login
                 const result = await login(username, password);
-                console.log(result)
 
-                
-                if (result.id === "") {  
+                if (result.id === "") {
                   setErrorMessage('Login/senha incorretos!');
                   setErrorVisible(true);
                   return;
                 } else {
+                  // limpando campos
                   onChangePassword('');
                   onChangeUsername('');
                   setErrorMessage('');
                   setErrorVisible(false);
-                  console.log(result)
-                  navigation.navigate('ContactList', { user: result }) // Substitua pelo ID do usuário atual
+
+                  // seguindo navegação
+                  navigation.reset({
+                    index: 1,
+                    routes: [
+                      { name: 'LoginScreen' },
+                      { name: 'ContactList', params: { user: result } }
+                    ]
+                  })
                   return;
                 }
 
               } catch (error) {
                 console.log('Login error:', error);
               }
-
-              navigation.navigate('ContactList')
             }
-          }
+            }
           >
             <Text style={styles.buttonText}>Login</Text>
           </Pressable>
